@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'mixins';
+
+
+// Navigation
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $gap-sm;
+
+  ul {
+    display: flex;
+    gap: $gap-sm;
+
+    li {
+      list-style: none;
+    }
+  }
+}

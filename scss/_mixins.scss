@@ -1,0 +1,236 @@
+/////////////////////////////// _mixins.scss
+
+// Import variables
+@import 'variables';
+
+// Media Query Mixin
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == uw {
+    @media (max-width: $breakpoint-uw) {
+      @content;
+    }
+  }
+  @if $breakpoint == wd {
+    @media (max-width: $breakpoint-wd) {
+      @content;
+    }
+  }
+  @if $breakpoint == xxl {
+    @media (max-width: $breakpoint-xxl) {
+      @content;
+    }
+  }
+  @if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+  @if $breakpoint == ml {
+    @media (max-width: $breakpoint-ml) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+  @if $breakpoint == xs {
+    @media (max-width: $breakpoint-xs) {
+      @content;
+    }
+  }
+}
+
+//
+
+// Container Mixin with Aspect Ratio Adjustments
+@mixin container-style {
+  max-width: $maxWidth;
+  padding: $gap-sm;
+  width: 100%;
+  margin: auto;
+}
+
+//
+
+// Aspect Ratio Mixin
+@mixin bento-aspect {
+
+  // Default aspect ratio for general screens
+  aspect-ratio: $aspectRatio-wd;
+
+  @include respond-to(uw) {
+    aspect-ratio: $aspectRatio-uw;
+  }
+
+  @include respond-to(wd) {
+    aspect-ratio: $aspectRatio-wd;
+  }
+
+  @include respond-to(xxl) {
+    aspect-ratio: $aspectRatio-xxl;
+  }
+
+  @include respond-to(xl) {
+    aspect-ratio: $aspectRatio-xl;
+  }
+
+  @include respond-to(lg) {
+    aspect-ratio: $aspectRatio-lg;
+  }
+
+  @include respond-to(ml) {
+    aspect-ratio: $aspectRatio-ml;
+  }
+
+  @include respond-to(md) {
+    aspect-ratio: unset;
+  }
+
+  @include respond-to(sm) {
+    aspect-ratio: unset;
+  }
+
+  @include respond-to(xs) {
+    aspect-ratio: unset;
+  }
+}
+
+//
+
+// generate box classes for masonry
+@mixin generate-box-classes($max-cols, $max-rows) {
+  // Generate detailed box classes scoped to `article` elements
+  @for $col from 1 through $max-cols {
+    @for $row from 1 through $max-rows {
+      .masonry > div article.box-#{$col}x-#{$row}y {
+        grid-column: span $col;
+        grid-row: span $row;
+
+        @include respond-to(ml) {
+          @if $col >= $maxCols-ml {
+            grid-column: span $maxCols-ml;
+          }
+        }
+        @include respond-to(md) {
+          @if $col >= $maxCols-md {
+            grid-column: span $maxCols-md;
+          }
+        }
+        @include respond-to(sm) {
+          @if $col >= $maxCols-sm {
+            grid-column: span $maxCols-sm;
+          }
+        }
+        @include respond-to(xs) {
+          @if $col >= $maxCols-xs {
+            grid-column: span $maxCols-xs;
+          }
+        }
+
+      }
+    }
+
+    // Classes for spans without rows
+    .masonry > div article.box-#{$col}x-y {
+      grid-column: span $col;
+      @include respond-to(ml) {
+        @if $col >= $maxCols-ml {
+          grid-column: span $maxCols-ml;
+        }
+      }
+      @include respond-to(md) {
+        @if $col >= $maxCols-md {
+          grid-column: span $maxCols-md;
+        }
+      }
+      @include respond-to(sm) {
+        @if $col >= $maxCols-sm {
+          grid-column: span $maxCols-sm;
+        }
+      }
+      @include respond-to(xs) {
+        @if $col >= $maxCols-xs {
+          grid-column: span $maxCols-xs;
+        }
+      }
+    }
+
+  }
+
+  // Classes for spans without columns
+  @for $row from 1 through $max-rows {
+    .masonry > div article.box-x-#{$row}y {
+      grid-row: span $row;
+    }
+  }
+
+  // Generate shorthand classes for square spans
+  @for $size from 1 through $max-cols {
+    .masonry > div article.box-#{$size} {
+      grid-column: span $size;
+      grid-row: span $size;
+      @include respond-to(md) {
+        @if $size >= $maxCols-md {
+          grid-column: span $maxCols-md;
+        }
+      }
+      @include respond-to(sm) {
+        @if $size >= $maxCols-sm {
+          grid-column: span $maxCols-sm;
+        }
+      }
+      @include respond-to(xs) {
+        @if $size >= $maxCols-xs {
+          grid-column: span $maxCols-xs;
+        }
+      }
+    }
+  }
+
+  // Base class for 1x1
+  .masonry > div article.box {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+//
+
+
+//----- BURASI GEÇİCİ --------
+// Bento Colors
+$color-boxes: (
+        $color-bento-1, $color-bento-2, $color-bento-3,
+        $color-bento-4, $color-bento-5, $color-bento-6,
+        $color-bento-7, $color-bento-8, $color-bento-9,
+        $color-bento-10, $color-bento-11, $color-bento-12,
+        $color-bento-13, $color-bento-14, $color-bento-15,
+        $color-bento-16, $color-bento-17, $color-bento-18,
+        $color-bento-19, $color-bento-20, $color-bento-21,
+        $color-bento-22, $color-bento-23, $color-bento-24,
+        $color-bento-25, $color-bento-26, $color-bento-27,
+        $color-bento-28, $color-bento-29, $color-bento-30,
+);
+
+@mixin bento-styles($total-items) {
+  @for $i from 1 through $total-items {
+    &:nth-child(#{$i}) {
+      background-color: nth($color-boxes, $i);
+      grid-area: b#{$i};
+      color: #2ecc71;
+    }
+  }
+}
+

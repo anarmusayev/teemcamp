@@ -1,0 +1,112 @@
+/////////////////////////////// _variables.scss
+//// Color Variables
+$color-1: #d2df5a;
+$color-2: #1679AB;
+$color-3: #FFB1B1;
+$color-4: #FFCBCB;
+
+// Accent Colors
+$color-success: #2ecc71;
+$color-success-light: #83f3b2;
+$color-success-dark: #025225;
+$color-danger: #f62e1a;
+$color-danger-light: #f1776c;
+$color-danger-dark: #921200;
+$color-warning: #f39c12;
+$color-warning-light: #f4d866;
+$color-warning-dark: #844803;
+$color-info: #3498db;
+$color-info-light: #71bef3;
+$color-info-dark: #0a4972;
+
+
+$color-bento-1: #d2df5a;
+$color-bento-2: #1679AB;
+$color-bento-3: #FFB1B1;
+$color-bento-4: #FFCBCB;
+$color-bento-5: #9a5adf;
+$color-bento-6: #ab7716;
+$color-bento-7: #e61212;
+$color-bento-8: #174970;
+$color-bento-9: #9a5adf;
+$color-bento-10: #ab7716;
+$color-bento-11: #056b44;
+$color-bento-12: #aae612;
+$color-bento-13: #765656;
+$color-bento-14: #2abed8;
+$color-bento-15: #801616;
+$color-bento-16: #bd0e66;
+$color-bento-17: #595025;
+$color-bento-18: #054fa4;
+$color-bento-19: #07acbb;
+$color-bento-20: #c45a0b;
+$color-bento-21: #266588;
+$color-bento-22: #bcc633;
+$color-bento-23: #c40b58;
+$color-bento-24: #b9f356;
+$color-bento-25: #7736e6;
+$color-bento-26: #320127;
+$color-bento-27: #78a9f1;
+$color-bento-28: #0a493d;
+$color-bento-29: #ed8cc0;
+$color-bento-30: #391c07;
+
+//// Typography Variables
+$font-family-base: 'Helvetica, Arial, sans-serif';
+$font-size-base: 1.6rem;
+$line-height-base: 1.5;
+
+//// Breakpoints in rem (1rem = 16px base font size)
+$breakpoint-uw: 160rem; // 2560px (Ultra Wide, for large screens and ultra-high-resolution monitors)
+$breakpoint-wd: 120rem; // 1920px (Wide, for desktops and large monitors)
+$breakpoint-xxl: 100rem; // 1600px (Extra Extra Large, for large desktops and laptops)
+$breakpoint-xl: 87.5rem; // 1400px (Extra Large, for desktops and high-resolution tablets in landscape)
+$breakpoint-lg: 75rem; // 1200px (Large, for standard desktops and large tablets in landscape)
+$breakpoint-ml: 64rem; // 1024px (Medium-Large, for tablets in landscape and small desktops)
+$breakpoint-md: 48rem; // 768px (Medium, for tablets in portrait and large phones in landscape)
+$breakpoint-sm: 36rem; // 576px (Small, for small tablets and large phones)
+$breakpoint-xs: 20rem; // 320px (Extra Small, for mobile phones in portrait mode)
+
+//// Aspect Ratio Variables
+$aspectRatio-uw: 21/9;  // Cinematic, ultrawide monitors
+$aspectRatio-wd: 16/9;  // Standard wide monitors and laptops
+$aspectRatio-xxl: 16/9; // Matches wide screen monitors
+$aspectRatio-xl: 16/10; // High-resolution monitors
+$aspectRatio-lg: 4/3;   // Large tablets and older monitors
+$aspectRatio-ml: 3/2;   // Common for modern tablets in portrait
+$aspectRatio-md: 4/3;   // Medium tablets
+$aspectRatio-sm: 9/18;  // Common for taller smartphones
+$aspectRatio-xs: 9/19;  // Modern mobile screens
+
+//// Gap Sizes
+$gap-xxl: 5rem;
+$gap-xl: 4rem;
+$gap-lg: 3rem;
+$gap-ml: 2.4rem;
+$gap-md: 1.8rem;
+$gap-sm: 1.4rem;
+$gap-xs: 0.8rem;
+
+//// Box Sizes (MinMax)
+$box-min: 6rem;
+$box-max: 6rem;
+
+//// Masonry Max Cols
+$maxCols: 12;
+$maxCols-ml: 9;
+$maxCols-md: 6;
+$maxCols-sm: 4;
+$maxCols-xs: 2;
+
+//// Other Variables
+$transition-duration: 0.3s;
+$border-radius: 0.5rem;
+$maxWidth: $breakpoint-wd;
+
+$minColSize: 38rem;
+$minRowSize: 14vh;
+
+
+
+
+

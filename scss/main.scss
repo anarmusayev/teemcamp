@@ -1,0 +1,29 @@
+/////////////////////////////// main.scss
+
+// Import Reset
+@import 'reset';
+
+// Import variables
+// Global variables such as colors, typography settings, breakpoints.
+@import 'variables';
+
+// Import mixins
+// Reusable mixins for common styles like media queries, animations, etc.
+@import 'mixins';
+
+// Import functions
+// Custom functions for complex calculations or utility purposes.
+@import 'functions';
+
+// Import base styles
+// Basic styles such as typography definitions, global styles.
+@import 'base';
+
+// Import components
+// Styles for reusable UI components like buttons, forms, cards.
+@import 'components';
+
+// Import layout styles
+// Styles related to layout structure such as grid systems, headers, footers.
+@import 'layout';
+

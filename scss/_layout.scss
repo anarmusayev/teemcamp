@@ -1,0 +1,2127 @@
+@import 'variables';
+@import 'mixins';
+
+// Layout
+body {
+  display: flex;
+  flex-direction: column;
+
+  > header {
+    width: 100%;
+    height: 8vh;
+
+    > div {
+      @include container-style;
+      display: flex; // Use flexbox for alignment
+      align-items: center; // Center items vertically
+
+      > figure.main-logo {
+        height: 100%;
+        width: auto;
+        margin: 0;
+        margin-left: $gap-md;
+
+        > img {
+          height: 100%;
+          width: auto;
+          min-height: 6vh; // Minimum height to maintain a certain size
+          display: block;
+        }
+      }
+
+      > nav {
+        margin-left: auto; // Align navigation to the right
+        > ul {
+          margin-right: $gap-md;
+          display: flex;
+          gap: $gap-sm;
+
+          > li {
+            list-style: none;
+
+            > a {
+              text-decoration: none;
+            }
+          }
+        }
+
+        @include respond-to(xs) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  > main {
+    width: 100%;
+    display: flex;
+    min-height: 88vh;
+    flex-direction: column;
+
+    > section {
+      width: 100%;
+      min-height: 88vh; //BURASI GEÇİCİ
+
+      > div {
+        grid-gap: $gap-sm;
+        background-color: rgba(88, 121, 143, 0.17);
+        @include container-style;
+        @include bento-aspect;
+        display: grid;
+
+        h1, h2, h3, h4, h5, h6, p, time {
+          color: $color-2;
+        }
+
+        > article {
+          min-height: 4vh;
+          align-items: baseline;
+          border-radius: $gap-md;
+          padding: $gap-xs;
+          background-color: #a8a8a8;
+          @include bento-styles(30);
+        }
+      }
+
+    }
+  }
+
+  > footer {
+    width: 100%;
+    height: 4vh;
+
+    > div {
+      @include container-style;
+
+      > figure.footer-logo {
+        width: 10rem;
+        height: 10rem;
+      }
+
+      > nav {
+        > ul {
+          display: flex;
+          gap: $gap-sm;
+          @include respond-to(sm) {
+            flex-direction: column;
+          }
+
+          > li {
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+
+  > aside {
+    position: fixed;
+    background-color: rgba(108, 14, 14, 0.44);
+    color: #e1e1e1;
+    padding: 2px 8px;
+    z-index: 9999999;
+    opacity: 0.4;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+  }
+
+}
+
+.bento-4-v1 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2 b3"
+      "b1 b1 b4 b4";
+
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b2 b3"
+      "b4 b4";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+  }
+}
+
+.bento-4-v2 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2 b2"
+      "b1 b1 b3 b4";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b2 b2"
+      "b3 b4";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+
+  }
+}
+
+.bento-4-v3 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2 b2"
+      "b3 b4 b2 b2";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b2 b2"
+      "b3 b4";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+
+  }
+}
+
+.bento-4-v4 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b2 b3 b3"
+      "b4 b4 b3 b3";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b2 b2"
+      "b3 b4";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+  }
+}
+
+.bento-4-v5 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b2 b2 b3"
+      "b1 b2 b2 b4";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b3"
+      "b1 b4"
+      "b2 b2"
+      "b2 b2";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+  }
+}
+
+.bento-4-v6 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b3 b3 b4"
+      "b2 b3 b3 b4";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b4"
+      "b2 b4"
+      "b3 b3"
+      "b3 b3";
+    }
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+  }
+}
+
+.bento-4-v7 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b2 b4 b4"
+      "b1 b3 b4 b4";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2"
+      "b1 b3"
+      "b4 b4"
+      "b4 b4";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+  }
+}
+
+.bento-4-v8 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b3 b4 b4"
+      "b2 b3 b4 b4";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2"
+      "b1 b3"
+      "b4 b4"
+      "b4 b4";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+  }
+}
+
+.bento-4-v9 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2 minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2 b3"
+      "b1 b1 b2 b4";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b2"
+      "b1 b1 b2"
+      "b3 b4 b2";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b1 b1"
+      "b2 b3"
+      "b2 b4";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+  }
+}
+
+.bento-4-v10 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2 b4"
+      "b1 b1 b3 b4";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b2"
+      "b1 b1 b2"
+      "b3 b4 b2";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b1 b1"
+      "b3 b2"
+      "b4 b2";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4";
+    }
+  }
+}
+
+
+.bento-5-v1 {
+  > div {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2"
+      "b1 b1 b2"
+      "b3 b4 b2"
+      "b3 b4 b5";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b3 b2"
+      "b3 b2"
+      "b4 b2"
+      "b4 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+.bento-5-v2 {
+  > div {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2"
+      "b1 b1 b5"
+      "b3 b4 b5"
+      "b3 b4 b5";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b3 b2"
+      "b3 b5"
+      "b4 b5"
+      "b4 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+.bento-5-v3 {
+  > div {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b2 b2"
+      "b3 b2 b2"
+      "b3 b4 b5"
+      "b3 b4 b5";
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b2 b2 b2"
+      "b1 b1 b4"
+      "b3 b3 b4"
+      "b3 b3 b5"
+      "b3 b3 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+.bento-5-v4 {
+  > div {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b2 b2"
+      "b1 b2 b2"
+      "b1 b4 b5"
+      "b3 b4 b5";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b2 b2"
+      "b1 b4"
+      "b1 b4"
+      "b1 b5"
+      "b3 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+.bento-5-v5 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b1 b2 b2"
+    "b1 b1 b3 b3"
+    "b4 b5 b3 b3";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b2 b2"
+      "b1 b1 b1 b2 b2"
+      "b4 b4 b3 b3 b3"
+      "b5 b5 b3 b3 b3";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b1 b1"
+      "b2 b2"
+      "b3 b3"
+      "b3 b3"
+      "b4 b5"
+      "b4 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+
+  }
+}
+
+.bento-5-v6 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b1 b2 b2"
+    "b3 b3 b2 b2"
+    "b3 b3 b4 b5";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b2 b2 b2"
+      "b1 b1 b2 b2 b2"
+      "b3 b3 b3 b4 b4"
+      "b3 b3 b3 b5 b5";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b2 b2"
+      "b2 b2"
+      "b3 b3"
+      "b3 b3"
+      "b4 b5"
+      "b4 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+.bento-5-v7 {
+  > div {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b1 b1 b2 b2 b2"
+    "b1 b1 b1 b2 b2 b2"
+    "b3 b3 b4 b4 b5 b5"
+    "b3 b3 b4 b4 b5 b5";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1"
+      "b2 b2 b2"
+      "b3 b4 b5"
+      "b3 b4 b5";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b1 b1"
+      "b2 b2"
+      "b2 b2"
+      "b3 b3"
+      "b4 b5"
+      "b4 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+.bento-5-v8 {
+  > div {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b1 b2 b2 b3 b3"
+    "b1 b1 b2 b2 b3 b3"
+    "b4 b4 b4 b5 b5 b5"
+    "b4 b4 b4 b5 b5 b5";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2 b3"
+      "b1 b2 b3"
+      "b4 b4 b4"
+      "b5 b5 b5";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b2 b3"
+      "b2 b3"
+      "b4 b4"
+      "b4 b4"
+      "b5 b5"
+      "b5 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+.bento-5-v9 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b1 b2 b4"
+    "b1 b1 b3 b4"
+    "b5 b5 b5 b4";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b1 b1 b4 b4 b4"
+      "b1 b1 b1 b1 b1 b4 b4 b4"
+      "b2 b2 b2 b3 b3 b4 b4 b4"
+      "b5 b5 b5 b5 b5 b4 b4 b4";
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1"
+      "b1 b1 b1"
+      "b2 b4 b4"
+      "b3 b4 b4"
+      "b5 b5 b5";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b1 b1"
+      "b2 b3"
+      "b4 b4"
+      "b5 b5";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+.bento-5-v10 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b2 b4 b4"
+      "b1 b3 b4 b4"
+      "b1 b5 b5 b5";
+
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b4 b4 b4 b4 b4"
+      "b1 b1 b1 b4 b4 b4 b4 b4"
+      "b1 b1 b1 b2 b2 b3 b3 b3"
+      "b1 b1 b1 b5 b5 b5 b5 b5";
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b2"
+      "b1 b1 b3"
+      "b4 b4 b4"
+      "b4 b4 b4"
+      "b5 b5 b5";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b2 b3"
+      "b4 b4"
+      "b4 b4"
+      "b5 b5";
+    }
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5";
+    }
+  }
+}
+
+
+.bento-6-v1 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b2 b3"
+    "b4 b2 b2 b6"
+    "b4 b5 b5 b6";
+
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b3"
+      "b2 b2"
+      "b2 b2"
+      "b4 b6"
+      "b4 b6"
+      "b5 b5"
+      "b5 b5";
+    }
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6";
+
+    }
+  }
+}
+
+.bento-6-v2 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b2 b3"
+    "b4 b2 b2 b3"
+    "b4 b5 b5 b6";
+
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b3"
+      "b2 b2"
+      "b2 b2"
+      "b4 b6"
+      "b4 b6"
+      "b5 b5"
+      "b5 b5";
+    }
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6";
+    }
+  }
+}
+
+.bento-6-v3 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b1 b2 b3"
+    "b1 b1 b6 b6"
+    "b4 b5 b6 b6";
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b2 b3"
+      "b1 b1"
+      "b1 b1"
+      "b4 b5"
+      "b6 b6"
+      "b6 b6";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6";
+    }
+  }
+}
+
+.bento-6-v4 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b3 b3"
+    "b4 b4 b3 b3"
+    "b4 b4 b5 b6";
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2"
+      "b3 b3"
+      "b3 b3"
+      "b4 b4"
+      "b4 b4"
+      "b5 b6";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6";
+    }
+  }
+}
+
+
+.bento-7-v1 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b3 b4"
+    "b1 b5 b5 b4"
+    "b6 b7 b7 b4";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2 b4"
+      "b1 b3 b4"
+      "b5 b5 b4"
+      "b6 b7 b7";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2"
+      "b1 b4"
+      "b3 b4"
+      "b6 b4"
+      "b5 b5"
+      "b7 b7";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7";
+    }
+  }
+}
+
+.bento-7-v2 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b3 b3"
+    "b1 b5 b5 b4"
+    "b6 b6 b7 b4";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b3 b3"
+      "b1 b5 b5"
+      "b2 b7 b4"
+      "b6 b6 b4";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b4"
+      "b1 b4"
+      "b3 b3"
+      "b5 b5"
+      "b2 b7"
+      "b6 b6";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7";
+    }
+  }
+}
+
+.bento-7-v3 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b2 b3"
+    "b4 b5 b5 b6"
+    "b4 b7 b7 b6";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2 b2"
+      "b4 b5 b5"
+      "b4 b3 b6"
+      "b7 b7 b6";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b3"
+      "b2 b2"
+      "b4 b6"
+      "b4 b6"
+      "b5 b5"
+      "b7 b7";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7";
+    }
+  }
+}
+
+.bento-7-v4 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b2 b3"
+    "b1 b4 b4 b5"
+    "b1 b6 b6 b7";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2 b2"
+      "b1 b4 b4"
+      "b1 b3 b5"
+      "b6 b6 b7";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b2 b2"
+      "b1 b3"
+      "b1 b5"
+      "b1 b7"
+      "b4 b4"
+      "b6 b6";
+    }
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7";
+    }
+  }
+}
+
+
+.bento-8-v1 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b2 b3"
+    "b4 b5 b5 b3"
+    "b4 b6 b7 b8";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2 b2"
+      "b4 b5 b5"
+      "b4 b6 b3"
+      "b7 b8 b3";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b2 b2"
+      "b1 b3"
+      "b4 b3"
+      "b4 b6"
+      "b5 b5"
+      "b7 b8";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8";
+    }
+  }
+}
+
+.bento-8-v2 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b3 b3"
+    "b4 b5 b5 b6"
+    "b4 b7 b7 b8";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b3 b3"
+      "b2 b5 b5"
+      "b4 b7 b7"
+      "b4 b6 b8";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2"
+      "b3 b3"
+      "b5 b5"
+      "b4 b6"
+      "b4 b8"
+      "b7 b7";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8";
+    }
+
+  }
+}
+
+.bento-8-v3 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b2 b2 b3"
+    "b1 b4 b4 b3"
+    "b5 b4 b4 b6"
+    "b7 b7 b8 b8";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2 b2"
+      "b1 b4 b4"
+      "b3 b4 b4"
+      "b3 b4 b4"
+      "b5 b7 b7"
+      "b6 b8 b8";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b2 b2"
+      "b1 b3"
+      "b1 b3"
+      "b4 b4"
+      "b4 b4"
+      "b5 b6"
+      "b7 b7"
+      "b8 b8";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8";
+    }
+  }
+}
+
+.bento-8-v4 {
+  > div {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b2 b3 b3"
+      "b1 b4 b4 b5"
+      "b1 b4 b4 b6"
+      "b7 b7 b8 b8";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b3 b3"
+      "b1 b4 b4"
+      "b2 b4 b4"
+      "b5 b7 b7"
+      "b8 b8 b6";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b3 b3"
+      "b1 b2"
+      "b1 b5"
+      "b1 b6"
+      "b4 b4"
+      "b4 b4"
+      "b7 b7"
+      "b8 b8";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8";
+    }
+  }
+}
+
+.bento-8-v5 {
+  > div {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2 b3 b4"
+      "b1 b1 b6 b6 b6"
+      "b5 b5 b6 b6 b6"
+      "b7 b7 b7 b8 b8";
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b2"
+      "b1 b1 b3"
+      "b4 b5 b5"
+      "b6 b6 b6"
+      "b6 b6 b6"
+      "b7 b7 b7"
+      "b8 b8 b8";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1"
+      "b2 b3"
+      "b5 b5"
+      "b6 b6"
+      "b6 b6"
+      "b4 b8"
+      "b7 b7";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8";
+    }
+  }
+}
+
+
+.bento-9-v1 {
+  > div {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b2 b3 b4 b4 b5"
+      "b6 b6 b6 b4 b4 b5"
+      "b6 b6 b6 b8 b9 b9"
+      "b7 b7 b7 b7 b9 b9";
+
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2 b3 b5"
+      "b4 b4 b8 b5"
+      "b4 b4 b9 b9"
+      "b7 b7 b9 b9"
+      "b6 b6 b6 b6"
+      "b6 b6 b6 b6";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b2 b3"
+      "b4 b4 b5"
+      "b4 b4 b5"
+      "b6 b6 b6"
+      "b6 b6 b6"
+      "b7 b7 b7"
+      "b8 b9 b9"
+      "b8 b9 b9"
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(9, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9";
+    }
+  }
+}
+
+.bento-9-v2 {
+  > div {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b2 b3 b3 b4 b4"
+      "b1 b1 b5 b5 b5 b4 b4"
+      "b1 b1 b5 b5 b5 b4 b4"
+      "b6 b6 b5 b5 b5 b9 b9"
+      "b6 b6 b7 b7 b8 b9 b9";
+
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1 b2 b3 b3"
+        "b1 b1 b5 b5 b5"
+        "b6 b6 b5 b5 b5"
+        "b6 b6 b7 b7 b8"
+        "b4 b4 b4 b9 b9"
+        "b4 b4 b4 b9 b9";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows:repeat(12, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1 b1"
+        "b1 b1 b1"
+        "b2 b3 b3"
+        "b4 b4 b4"
+        "b4 b4 b4"
+        "b5 b5 b5"
+        "b5 b5 b5"
+        "b5 b5 b5"
+        "b6 b6 b6"
+        "b6 b6 b6"
+        "b7 b7 b8"
+        "b9 b9 b9"
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(9, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9";
+    }
+  }
+}
+
+
+.bento-10-v1 {
+  > div {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+     "b1 b1 b1 b1  b2 b2   b3 b3  b4 b4"
+     "b5 b5 b5  b6 b6  b7 b7   b8 b8 b8"
+     "b5 b5 b5  b9 b9  b10 b10 b8 b8 b8";
+
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b1 b1 b1 b1 b1 b2 b2 b2 b2"
+      "b3 b3 b3 b3 b4 b4 b4 b4 b5 b5 b5 b5"
+      "b8 b8 b8 b6 b6 b6 b6 b6 b5 b5 b5 b5"
+      "b8 b8 b8 b7 b7 b7 b7 b7 b5 b5 b5 b5"
+      "b9 b9 b9 b9 b9 b9 b9 b10 b10 b10 b10 b10";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b1 b1 b1"
+      "b2 b2 b2 b3 b3 b3"
+      "b5 b5 b5 b4 b4 b4"
+      "b5 b5 b5 b6 b6 b6"
+      "b7  b7  b7  b8 b8 b8"
+      "b10 b10 b10 b8 b8 b8"
+      "b9 b9 b9 b9 b9 b9";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(10, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9"
+                    "b10";
+    }
+
+  }
+}
+
+.bento-10-v2 {
+  > div {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+     "b1 b1 b2 b2 b3 b4"
+     "b1 b1 b5 b5 b3 b4"
+     "b6 b6 b5 b5 b10 b10"
+     "b7 b8 b8 b9 b10 b10";
+
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1 b2 b2"
+        "b1 b1 b3 b4"
+        "b5 b5 b3 b4"
+        "b5 b5 b6 b6"
+        "b7 b8 b8 b9"
+        "b10 b10 b10 b10";
+    }
+
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(12, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1"
+        "b1 b1"
+        "b2 b2"
+        "b3 b4"
+        "b3 b4"
+        "b5 b5"
+        "b5 b5"
+        "b6 b6"
+        "b7 b9"
+        "b8 b8"
+        "b10 b10"
+        "b10 b10";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(10, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9"
+                    "b10";
+    }
+
+  }
+}
+
+
+.bento-11-v1 {
+  > div {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+     "b1 b1 b1 b1  b2 b2  b3 b3  b4 b4"
+     "b6 b6  b7 b7  b8 b8 b5 b5 b5 b5"
+     "b9 b9  b10 b10  b11 b11 b5 b5 b5 b5";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+     "b1 b1 b1 b1  b2 b2  b3 b3"
+     "b4 b4 b6 b6  b5 b5  b5 b5"
+     "b7 b7 b8 b8  b5 b5  b5 b5"
+     "b9 b9 b10 b10  b11 b11  b11 b11";
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+     "b1 b1 b1 b1"
+     "b2 b2 b3 b3"
+     "b5 b5 b5 b5"
+     "b5 b5 b5 b5"
+     "b4 b4 b6 b6"
+     "b7 b7 b8 b8"
+     "b9 b9 b10 b10"
+     "b11 b11 b11 b11";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(11, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9"
+                    "b10"
+                    "b11";
+    }
+  }
+}
+
+.bento-11-v2 {
+  > div {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows:repeat(3, minmax($minRowSize, 1fr));
+    grid-template-areas:
+     "b1 b1 b1 b1   b2 b2    b3 b3     b3 b3"
+     "b4 b4  b5 b5  b6  b6   b7  b7    b8 b8"
+     "b4 b4  b9 b9  b10 b10  b11 b11   b8 b8";
+
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+      grid-template-areas:
+     "b1 b1 b1 b1 b1 b1  b3 b3 b3 b3 b3 b3"
+     "b2 b2 b2 b2  b5 b5 b5 b5  b6 b6 b6 b6"
+     "b4 b4 b4  b7 b7 b7  b9 b9 b9  b8 b8 b8"
+     "b4 b4 b4  b10 b10 b10  b11 b11 b11  b8 b8 b8"
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+     "b1 b1 b1 b1 b1 b1"
+     "b3 b3 b3 b3 b3 b3"
+     "b2 b2 b2 b5 b5 b5"
+     "b4 b4 b4 b4 b4 b4"
+     "b6 b6 b6 b7 b7 b7"
+     "b8 b8 b8 b8 b8 b8"
+     "b9 b9 b10 b10 b11 b11";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(11, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9"
+                    "b10"
+                    "b11";
+    }
+  }
+}
+
+
+.bento-12-v1 {
+  > div {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+    grid-template-areas:
+    "b1 b1 b1 b1   b2 b2 b2 b2   b3 b3"
+    "b4 b4   b6 b6 b6 b6 b6 b6   b7 b7"
+    "b5 b5   b6 b6 b6 b6 b6 b6   b8 b8"
+    "b9 b9 b9  b10 b10  b11 b11 b11   b8 b8"
+    "b9 b9 b9  b10 b10 b12 b12 b12   b8 b8";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1 b1 b1 b1 b1 b1    b2 b2 b2 b2 b2"
+        "b3 b3 b3  b4 b4 b4  b5 b5 b5  b7 b7 b7"
+        "b6 b6 b6 b6 b6 b6 b6 b6 b6  b8 b8 b8"
+        "b6 b6 b6 b6 b6 b6 b6 b6 b6  b8 b8 b8"
+        "b9 b9 b9 b9 b9  b10 b10   b11 b11 b11 b11 b11"
+        "b9 b9 b9 b9 b9  b10 b10   b12 b12 b12 b12 b12";
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1 b1 b1 b1 b1 b1   b2 b2 b2 b2 b2"
+        "b3 b3 b3 b3 b3  b4 b4 b4 b4  b8 b8 b8"
+        "b5 b5 b5 b5  b7 b7 b7 b7 b7  b8 b8 b8"
+        "b6 b6 b6 b6 b6 b6 b6 b6 b6 b6 b6 b6"
+        "b6 b6 b6 b6 b6 b6 b6 b6 b6 b6 b6 b6"
+        "b9 b9 b9 b9 b9 b9 b9 b9 b9   b10 b10 b10"
+        "b11 b11 b11 b11 b11 b11   b12 b12 b12 b12 b12 b12";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1 b1 b1 b1 b1 b1   b2 b2 b2 b2 b2"
+        "b3 b3 b3 b3 b3 b3  b4 b4 b4 b4 b4 b4"
+        "b5 b5 b5 b5 b5 b5  b7 b7 b7 b7 b7 b7"
+        "b6 b6 b6 b6 b6 b6 b6 b6 b6 b6 b6 b6"
+        "b6 b6 b6 b6 b6 b6 b6 b6 b6 b6 b6 b6"
+        "b9 b9 b9 b9 b9 b9 b9 b9 b9 b9 b9 b9"
+        "b8 b8 b8 b8 b8 b8 b8 b8 b8  b10 b10 b10"
+        "b11 b11 b11 b11 b11 b11   b12 b12 b12 b12 b12 b12";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(12, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9"
+                    "b10"
+                    "b11"
+                    "b12";
+    }
+  }
+}
+
+.bento-12-v2 {
+  > div {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows:repeat(4, minmax($minRowSize, 1fr));
+    grid-template-areas:
+        "b1 b1 b2 b2 b3      b4 b4"
+        "b1 b1 b5 b5 b5      b6 b7"
+        "b8 b9 b5 b5 b5      b12 b12"
+        "b8 b10 b10 b11 b11 b12 b12";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1 b2 b2 b3"
+        "b1 b1 b5 b5 b5"
+        "b4 b4 b5 b5 b5"
+        "b6 b7 b8 b12 b12"
+        "b9 b9 b8 b12 b12"
+        "b10 b10 b8 b11 b11";
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows:repeat(7, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1 b2 b2"
+        "b1 b1 b4 b4"
+        "b5 b5 b5 b3"
+        "b5 b5 b5 b6"
+        "b7 b8 b10 b10"
+        "b9 b8 b11 b11"
+        "b12 b12 b12 b12";
+    }
+
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows:repeat(13, minmax($minRowSize, 1fr));
+      grid-template-areas:
+        "b1 b1"
+        "b1 b1"
+        "b2 b2"
+        "b4 b4"
+        "b3 b6"
+        "b5 b5"
+        "b5 b5"
+        "b5 b5"
+        "b7 b8"
+        "b9 b8"
+        "b10 b10"
+        "b11 b11"
+        "b12 b12";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(12, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9"
+                    "b10"
+                    "b11"
+                    "b12";
+    }
+  }
+}
+
+
+.bento-13-v1 {
+  > div {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b1 b2 b2 b2        b3 b3  b3  b5 b5 b5"
+      "b1 b1 b1 b2 b2 b2        b4 b4  b4  b5 b5 b5"
+      "b6 b6 b6 b8 b8 b9        b9 b10 b10 b5 b5 b5"
+      "b7 b7 b7 b8 b8 b9        b9 b10 b10 b5 b5 b5"
+      "b11 b11 b11 b11 b11 b11  b12 b12 b12 b13 b13 b13";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows:repeat(8, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b1 b2 b2 b2 b2 b3 b3 b3 b3"
+      "b1 b1 b1 b1 b2 b2 b2 b2 b4 b4 b4 b4"
+      "b5 b5 b5 b5 b6 b6 b6 b6 b8 b8 b9 b9"
+      "b5 b5 b5 b5 b7 b7 b7 b7 b8 b8 b9 b9"
+      "b5 b5 b5 b5 b11 b11 b11 b11 b11 b11 b11 b11"
+      "b5 b5 b5 b5 b11 b11 b11 b11 b11 b11 b11 b11"
+      "b10 b10  b12 b12 b12 b12 b12 b13 b13 b13 b13 b13"
+      "b10 b10  b12 b12 b12 b12 b12 b13 b13 b13 b13 b13"
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows:repeat(11, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b1 b1 b1 b2 b2 b2 b2 b2 b2"
+      "b1 b1 b1 b1 b1 b1 b2 b2 b2 b2 b2 b2"
+      "b5 b5 b5 b5 b5 b5 b3 b3 b3 b3 b3 b3"
+      "b5 b5 b5 b5 b5 b5 b4 b4 b4 b4 b4 b4"
+      "b5 b5 b5 b5 b5 b5 b6 b6 b6 b6 b6 b6"
+      "b5 b5 b5 b5 b5 b5 b7 b7 b7 b7 b7 b7"
+      "b9 b9 b9 b9 b8 b8 b8 b8 b10 b10 b10 b10"
+      "b11 b11 b11 b11 b11 b11 b11 b11 b11 b11 b11 b11"
+      "b11 b11 b11 b11 b11 b11 b11 b11 b11 b11 b11 b11"
+      "b12 b12 b12 b12 b12 b12 b13 b13 b13 b13 b13 b13"
+      "b12 b12 b12 b12 b12 b12 b13 b13 b13 b13 b13 b13";
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows:repeat(11, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b1 b1 b1 b2 b2 b2 b2 b2 b2"
+      "b1 b1 b1 b1 b1 b1 b2 b2 b2 b2 b2 b2"
+      "b5 b5 b5 b5 b5 b5 b3 b3 b3 b3 b3 b3"
+      "b5 b5 b5 b5 b5 b5 b4 b4 b4 b4 b4 b4"
+      "b5 b5 b5 b5 b5 b5 b6 b6 b6 b6 b6 b6"
+      "b5 b5 b5 b5 b5 b5 b7 b7 b7 b7 b7 b7"
+      "b9 b9 b9 b9 b8 b8 b8 b8 b10 b10 b10 b10"
+      "b11 b11 b11 b11 b11 b11 b11 b11 b11 b11 b11 b11"
+      "b11 b11 b11 b11 b11 b11 b11 b11 b11 b11 b11 b11"
+      "b12 b12 b12 b12 b12 b12 b13 b13 b13 b13 b13 b13"
+      "b12 b12 b12 b12 b12 b12 b13 b13 b13 b13 b13 b13";
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(13, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9"
+                    "b10"
+                    "b11"
+                    "b12"
+                    "b13";
+    }
+  }
+}
+
+
+.bento-14-v1 {
+  > div {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows:repeat(5, minmax($minRowSize, 1fr));
+    grid-template-areas:
+      "b1 b1 b1 b2 b2 b2 b4 b4 b4 b5 b5 b5"
+      "b1 b1 b1 b3 b3 b3 b4 b4 b4 b5 b5 b5"
+      "b6 b6 b6 b7 b7 b8 b8 b9 b9 b10 b10 b10"
+      "b11 b11 b11 b12 b12 b12 b14 b14 b14 b10 b10 b10"
+      "b13 b13 b13 b13 b13 b13 b14 b14 b14 b10 b10 b10";
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b2 b2 b2 b4 b4 b4"
+      "b1 b1 b1 b3 b3 b3 b4 b4 b4"
+      "b5 b5 b5 b6 b6 b6 b10 b10 b10"
+      "b7 b7 b8 b8 b9 b9 b10 b10 b10"
+      "b11 b11 b11 b12 b12 b12 b14 b14 b14"
+      "b13 b13 b13 b13 b13 b13 b14 b14 b14";
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-rows:repeat(6, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b2 b2 b2 b4 b4 b4"
+      "b1 b1 b1 b3 b3 b3 b4 b4 b4"
+      "b5 b5 b5 b6 b6 b6 b10 b10 b10"
+      "b7 b7 b8 b8 b9 b9 b10 b10 b10"
+      "b11 b11 b11 b12 b12 b12 b14 b14 b14"
+      "b13 b13 b13 b13 b13 b13 b14 b14 b14";
+
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows:repeat(10, minmax($minRowSize, 1fr));
+      grid-template-areas:
+      "b1 b1 b1 b2 b2 b2"
+      "b1 b1 b1 b3 b3 b3"
+      "b4 b4 b4 b5 b5 b5"
+      "b4 b4 b4 b5 b5 b5"
+      "b7 b7 b8 b8 b9 b9"
+      "b6 b6 b6 b10 b10 b10"
+      "b11 b11 b11 b10 b10 b10"
+      "b12 b12 b12 b10 b10 b10"
+      "b13 b13 b13 b13 b13 b13"
+      "b14 b14 b14 b14 b14 b14"
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns:1fr;
+      grid-template-rows:repeat(14, minmax($minRowSize, 1fr));
+      grid-template-areas:
+                    "b1"
+                    "b2"
+                    "b3"
+                    "b4"
+                    "b5"
+                    "b6"
+                    "b7"
+                    "b8"
+                    "b9"
+                    "b10"
+                    "b11"
+                    "b12"
+                    "b13"
+                    "b14";
+    }
+  }
+}
+
+.masonry {
+
+  > div {
+    grid-template-columns: repeat($maxCols, minmax($box-min, 1fr));
+    grid-auto-rows: minmax($box-min, auto); // Ensure rows grow with content
+    grid-auto-flow: dense;
+
+
+    @include respond-to(ml) {
+      grid-template-columns: repeat($maxCols-ml, minmax($box-min, 1fr));
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat($maxCols-md, minmax($box-min, 1fr));
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat($maxCols-sm, minmax($box-min, 1fr));
+    }
+
+    @include respond-to(xs) {
+      grid-template-columns: repeat($maxCols-xs, minmax($box-min, 1fr));
+    }
+
+    > article:nth-child(n) {
+      height: auto; // Ensure articles grow with their content
+      grid-area: auto;
+      border-radius: $border-radius;
+    }
+  }
+}
+
+@include generate-box-classes(12, 12);
+
+
+
+
